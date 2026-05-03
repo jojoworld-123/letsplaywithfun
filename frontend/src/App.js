@@ -38,6 +38,9 @@ function App() {
 };
   return (
     <div className="App">
+    <button onClick={() => speak("Welcome to Computer Champ")}>
+  🔊 Start Voice
+</button>
       <GameProvider>
         <BrowserRouter>
           <Routes>
