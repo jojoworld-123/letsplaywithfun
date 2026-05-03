@@ -1,0 +1,118 @@
+{
+  "theme": "LIGHT",
+  "archetype": "6 (Vibrant Play)",
+  "vibe": "Educational, mobile-first, soft 3D/claymorphism, friendly, colorful cartoon UI",
+  "typography": {
+    "headings": {
+      "fontFamily": "Fredoka, Nunito, sans-serif",
+      "weight": "font-bold",
+      "tracking": "tracking-normal"
+    },
+    "body": {
+      "fontFamily": "Nunito, sans-serif",
+      "weight": "font-medium"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl",
+      "h2": "text-2xl sm:text-3xl",
+      "h3": "text-xl sm:text-2xl",
+      "body": "text-lg",
+      "small": "text-base"
+    }
+  },
+  "colors": {
+    "background": {
+      "main": "bg-[#F0F9FF]",
+      "card": "bg-white",
+      "map": "bg-gradient-to-b from-[#BAE6FD] to-[#E0F2FE]",
+      "success": "bg-[#DCFCE7]",
+      "error": "bg-[#FEE2E2]"
+    },
+    "primary": "bg-[#38BDF8]",
+    "secondary": "bg-[#FDE047]",
+    "accent1": "bg-[#FB7185]",
+    "accent2": "bg-[#A78BFA]",
+    "accent3": "bg-[#34D399]",
+    "text": {
+      "main": "text-[#1E293B]",
+      "muted": "text-[#475569]",
+      "inverse": "text-white"
+    },
+    "borders": {
+      "subtle": "border-[#E2E8F0]",
+      "bold": "border-[#0F172A]"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Chunky, mobile-first, highly tappable areas. Generous padding to prevent accidental misclicks by children.",
+    "container": "max-w-3xl mx-auto px-4 sm:px-6 w-full",
+    "buttons": "min-h-[64px] px-8 py-4 w-full",
+    "cards": "p-6 sm:p-8",
+    "grid": "grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+  },
+  "surfaces_and_micro_themes": {
+    "buttons": "rounded-full shadow-[0_8px_0_0_rgba(0,0,0,0.15)] active:shadow-[0_0px_0_0_rgba(0,0,0,0.15)] active:translate-y-2 transition-all duration-150 border-2 border-white/20 font-bold text-xl",
+    "cards": "rounded-3xl shadow-xl border-4 border-white bg-white/80 backdrop-blur-md overflow-hidden",
+    "inputs": "rounded-2xl border-4 border-slate-200 bg-slate-50 text-2xl p-6 focus:border-[#38BDF8] focus:ring-4 focus:ring-[#38BDF8]/20 transition-all",
+    "map_nodes": "w-20 h-20 rounded-full border-4 border-white shadow-[0_6px_0_0_rgba(0,0,0,0.2)] flex items-center justify-center text-3xl font-bold"
+  },
+  "motion_and_interactions": {
+    "hover": "hover:-translate-y-1 hover:brightness-110",
+    "tap": "active:scale-95",
+    "entrance": "animate-in fade-in zoom-in-95 duration-500 spring-bounce",
+    "success_feedback": "react-confetti trigger, audio chime, and bounce animation on the correct item",
+    "error_feedback": "horizontal shake animation, soft 'boop' sound"
+  },
+  "components": {
+    "tts_button": {
+      "description": "Large circular button with a speaker icon. Pulses when audio is playing. Must use Browser Web Speech API with female voice (prefer 'Google UK English Female' or similar).",
+      "style": "bg-[#FDE047] text-slate-800 rounded-full w-16 h-16 shadow-[0_4px_0_0_#CA8A04]"
+    },
+    "jolly_phonics_block": {
+      "description": "Individual letter blocks that break down a word (e.g., C - O - M - P - U - T - E - R). Each block is tappable to hear its phonetic sound.",
+      "style": "bg-white border-2 border-slate-200 rounded-xl w-14 h-16 flex items-center justify-center text-2xl font-bold shadow-sm"
+    },
+    "animated_teacher": {
+      "description": "A floating mascot at the bottom-left or top-right of the screen that gives instructions. Uses a speech bubble.",
+      "style": "w-24 h-24 or purely CSS emoji/SVG based if image unavailable. Speech bubble: bg-white rounded-2xl p-4 shadow-lg text-lg relative"
+    },
+    "certificate_generator": {
+      "description": "HTML-to-Canvas or standard canvas implementation to draw the certificate. Must include 'Computer Champ', Student Name, Class, Stars, and a colorful border. NO LOGOS.",
+      "payment": "Requires Razorpay checkout (mocked or test mode) for ₹5 before revealing the download button."
+    }
+  },
+  "specific_requirements": {
+    "voice": "TTS must be prominent. Every instruction and read-aloud must have a 'repeat' button.",
+    "cpu_rule": "CPU MUST always be shown as a Cabinet/Tower. NEVER a brain or chip.",
+    "jumble_words": ["keyboard", "mouse", "computer", "cpu", "thing", "natural", "clock", "monitor", "desktop", "laptop", "tablet", "smartphone", "man", "made", "manual", "easily", "toy", "humans", "bicycle", "scissors", "cooler", "games", "refrigerator", "washing-machine", "electricity", "nature"],
+    "game_modes": [
+      "Learn Mode",
+      "Quiz Mode",
+      "Match Game",
+      "Spell Game",
+      "Jumble Game",
+      "Picture Game",
+      "Multitasking Game"
+    ]
+  },
+  "media_urls": {
+    "cpu_cabinet": "https://images.unsplash.com/photo-1538580486261-01980bbc7c8c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGNwdSUyMHRvd2VyJTIwY2FiaW5ldHxlbnwwfHx8fDE3Nzc3ODE4MDR8MA&ixlib=rb-4.1.0&q=85",
+    "monitor_setup": "https://images.unsplash.com/photo-1631452090710-f3914f393618?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHw0fHxkZXNrdG9wJTIwY29tcHV0ZXIlMjBtb25pdG9yJTIwa2V5Ym9hcmQlMjBtb3VzZXxlbnwwfHx8fDE3Nzc3ODE4MDR8MA&ixlib=rb-4.1.0&q=85",
+    "laptop_tablet_smartphone": "https://images.unsplash.com/photo-1554412657-8c3cd76f9367?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxsYXB0b3AlMjB0YWJsZXQlMjBzbWFydHBob25lJTIwY2xvY2t8ZW58MHx8fHwxNzc3NzgxODA5fDA&ixlib=rb-4.1.0&q=85",
+    "clock": "https://images.unsplash.com/photo-1572050826965-3a217b76c247?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxsYXB0b3AlMjB0YWJsZXQlMjBzbWFydHBob25lJTIwY2xvY2t8ZW58MHx8fHwxNzc3NzgxODA5fDA&ixlib=rb-4.1.0&q=85",
+    "nature": "https://images.unsplash.com/photo-1598439473183-42c9301db5dc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwbGFuZHNjYXBlJTIwdHJlZSUyMG1vdW50YWlufGVufDB8fHx8MTc3Nzc4MTgwNHww&ixlib=rb-4.1.0&q=85",
+    "bicycle": "https://images.unsplash.com/photo-1617300991982-566870db0dbc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwzfHx0b3klMjBiaWN5Y2xlJTIwc2Npc3NvcnMlMjBjb29sZXJ8ZW58MHx8fHwxNzc3NzgxODA5fDA&ixlib=rb-4.1.0&q=85",
+    "abstract_bg": "https://images.unsplash.com/photo-1629198239973-7628f33505d9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjb2xvcmZ1bCUyMGFic3RyYWN0JTIwYmFja2dyb3VuZCUyMGtpZHN8ZW58MHx8fHwxNzc3NzgxODA5fDA&ixlib=rb-4.1.0&q=85"
+  },
+  "instructions_to_main_agent": [
+    "Use standard HTML/Tailwind for the game layouts to maintain the highly customized 'soft toy' 3D button feel (shadow-[0_8px_0_0_...]).",
+    "Rely heavily on 'lucide-react' icons for UI elements (stars, audio, play buttons) sized at least 32px (w-8 h-8).",
+    "Implement Web Speech API in a hook (e.g., useTTS) that accepts text and handles play/pause. Ensure it's triggered explicitly by user action to respect browser autoplay policies.",
+    "For the level map, build a vertically scrolling layout with SVG dashed lines connecting level nodes. Use absolute positioning inside relative rows.",
+    "Jolly Phonics breakdown: Split the current word into an array of characters. When tapped, use TTS to say the letter sound.",
+    "Jumble Game: Provide a drag-and-drop or tap-to-swap interface for the 26 provided words.",
+    "Implement Razorpay standard script tag injection and use a mock success handler if backend secrets are not provided, allowing kids to download the certificate.",
+    "Certificate generation: Create an off-screen HTML div with inline styles, use 'html2canvas' to render it, and trigger a download link.",
+    "Ensure all interactive elements have data-testid attributes per rules."
+  ]
+}
