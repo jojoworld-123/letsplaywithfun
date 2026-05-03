@@ -172,22 +172,28 @@ export default function CertificatePage() {
 
       {/* Certificate Preview */}
       <div className="overflow-x-auto no-scrollbar">
-        <div
-  ref={certRef}
-  id="certificate"
-          <div style={{ textAlign: "center", marginTop: 20 }}>
-  <div style={{ fontSize: 20, color: "#374151" }}>
-    This certificate is proudly presented to
-  </div>
+  <div
+    ref={certRef}
+    id="certificate"
+    data-testid="certificate-preview"
+    className="mx-auto my-3"
+  >
+    <div style={{ textAlign: "center", marginTop: 20 }}>
 
-  <div style={{ fontSize: 32, fontWeight: "bold", marginTop: 10 }}>
-    {displayName}
-  </div>
+      <div style={{ fontSize: 20 }}>
+        This certificate is proudly presented to
+      </div>
 
-  <div style={{ fontSize: 18, marginTop: 6 }}>
-    Class {editClass}
+      <div style={{ fontSize: 32, fontWeight: "bold" }}>
+        {displayName}
+      </div>
+
+      <div style={{ fontSize: 18 }}>
+        Class {editClass}
+      </div>
+
+    </div>
   </div>
-</div>
   data-testid="certificate-preview"
   className="mx-auto my-3"
   style={{
