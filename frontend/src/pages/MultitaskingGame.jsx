@@ -67,8 +67,8 @@ export default function MultitaskingGame() {
         </div>
         <div className="grid grid-cols-2 gap-3">
           {[cur.a, cur.b].map((it, i) => (
-            <div key={i} className="rounded-2xl overflow-hidden bg-gradient-to-br from-rose-100 via-amber-50 to-sky-100 border-4 border-white shadow-inner">
-              <img src={it.img} alt={it.label} className="w-full h-36 sm:h-44 object-contain p-3" />
+            <div key={i} className="rounded-2xl overflow-hidden bg-slate-100 border-4 border-white shadow-inner">
+              <img src={it.img} alt={it.label} className="w-full h-36 sm:h-44 object-cover" />
               <div className="p-2 text-center font-extrabold text-slate-800">{it.label}</div>
             </div>
           ))}

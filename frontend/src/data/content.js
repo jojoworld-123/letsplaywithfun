@@ -7,59 +7,57 @@ export const TEACHER = {
   photo: "/jyoti.jpg",
 };
 
-// ---- Image library (3D cartoon illustrations) ----
-// Primary source: Microsoft Fluent UI Emoji 3D (CC-BY 4.0)
-// Fallback: icons8 3d-fluency for items missing in Fluent (e.g., CPU tower, fridge, washer)
-const F = (folder, slug) =>
-  `https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/${encodeURI(folder)}/3D/${slug}_3d.png`;
-const I = (slug) => `https://img.icons8.com/3d-fluency/256/${slug}.png`;
+// ---- Image library (REAL authentic photos) ----
+// Critical items are downloaded locally to /img/ for authenticity (real ceiling fan, real mixer, etc.).
+// General items use verified Unsplash photo IDs.
+const U = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`;
 
 export const IMG = {
-  computer: F("Desktop computer", "desktop_computer"),
-  cpu: "/cpu-tower.svg", // Custom CPU cabinet/tower SVG (NEVER brain, NEVER chip)
-  monitor: F("Television", "television"),
-  keyboard: F("Keyboard", "keyboard"),
-  mouse: F("Computer mouse", "computer_mouse"),
-  speaker: F("Speaker high volume", "speaker_high_volume"),
-  printer: F("Printer", "printer"),
-  laptop: F("Laptop", "laptop"),
-  tablet: F("Notebook", "notebook"), // tablet-like flat device
-  smartphone: F("Mobile phone", "mobile_phone"),
-  desktop: F("Desktop computer", "desktop_computer"),
+  computer: U("photo-1593640408182-31c70c8268f5"),
+  cpu: "/img/cputower.png", // Real desktop CPU tower (NEVER brain, NEVER chip)
+  monitor: U("photo-1527443224154-c4a3942d3acf"),
+  keyboard: U("photo-1587829741301-dc798b83add3"),
+  mouse: U("photo-1527814050087-3793815479db"),
+  speaker: "/img/speaker.jpg",
+  printer: U("photo-1612815154858-60aa4c59eaa6"),
+  laptop: U("photo-1496181133206-80ce9b88a853"),
+  tablet: U("photo-1561154464-82e9adf32764"),
+  smartphone: U("photo-1511707171634-5f897ff02aa9"),
+  desktop: U("photo-1593640408182-31c70c8268f5"),
   // Nature
-  tree: F("Deciduous tree", "deciduous_tree"),
-  mountain: F("Mountain", "mountain"),
-  sun: F("Sun", "sun"),
-  river: F("Water wave", "water_wave"),
+  tree: U("photo-1448375240586-882707db888b"),
+  mountain: U("photo-1464822759023-fed622ff2c3b"),
+  sun: "/img/sun.jpg",
+  river: "/img/river.jpg",
   // Man-made
-  car: F("Automobile", "automobile"),
-  house: F("House", "house"),
-  road: I("road"),
-  chair: F("Chair", "chair"),
-  // Machines
-  fan: I("fan-2"),
-  mixer: I("milkshake"),
-  washingMachine: I("washing-machine"),
-  refrigerator: I("fridge"),
-  bicycle: F("Bicycle", "bicycle"),
-  scissors: F("Scissors", "scissors"),
-  cooler: F("Snowflake", "snowflake"),
-  clock: F("Mantelpiece clock", "mantelpiece_clock"),
-  toy: F("Teddy bear", "teddy_bear"),
-  electricity: F("High voltage", "high_voltage"),
+  car: U("photo-1494976388531-d1058494cdd8"),
+  house: U("photo-1568605114967-8130f3a36994"),
+  road: U("photo-1502134249126-9f3755a50d78"),
+  chair: U("photo-1561677978-583a8c7a4b43"),
+  // Machines (REAL photos, no Chinese hand fan!)
+  fan: "/img/fan.jpg", // Real ceiling fan
+  mixer: "/img/mixer.jpg", // Real table-top mixer-grinder
+  washingMachine: "/img/washingmachine.jpg",
+  refrigerator: "/img/refrigerator.jpg",
+  bicycle: U("photo-1485965120184-e220f721d03e"),
+  scissors: "/img/scissors.jpg",
+  cooler: "/img/cooler.jpg", // Real evaporative air cooler
+  clock: U("photo-1501139083538-0139583c060f"),
+  toy: U("photo-1558877385-81a1c7e67d72"),
+  electricity: "/img/lightning.jpg",
   // Activities
-  music: F("Musical notes", "musical_notes"),
-  draw: F("Artist palette", "artist_palette"),
-  game: F("Video game", "video_game"),
-  video: F("Movie camera", "movie_camera"),
-  book: F("Open book", "open_book"),
-  pen: F("Fountain pen", "fountain_pen"),
+  music: U("photo-1511671782779-c97d3d27a1d4"),
+  draw: U("photo-1513364776144-60967b0f800f"),
+  game: U("photo-1542751371-adc38448a05e"),
+  video: U("photo-1574375927938-d5a98e8ffe85"),
+  book: U("photo-1532012197267-da84d127e765"),
+  pen: U("photo-1455390582262-044cdead277a"),
   // Humans/family
-  humans: I("group"),
+  humans: U("photo-1517248135467-4c7edcad34c4"),
   // Concept icons
-  speed: F("Stopwatch", "stopwatch"),
-  storage: F("Floppy disk", "floppy_disk"),
-  internet: F("Globe with meridians", "globe_with_meridians"),
+  speed: "/img/speedometer.jpg",
+  storage: U("photo-1597852074816-d933c7d2b988"),
+  internet: "/img/router.jpg",
 };
 
 // ---- Learn Mode topics ----

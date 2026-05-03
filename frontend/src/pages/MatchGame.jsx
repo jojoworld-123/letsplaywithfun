@@ -91,9 +91,9 @@ export default function MatchGame() {
                 disabled={matched[p.word]}
                 onClick={() => onPicTap(p)}
                 data-testid={`match-pic-${p.word}`}
-                className={`rounded-xl overflow-hidden border-4 bg-gradient-to-br from-emerald-50 to-sky-50 ${matched[p.word] ? "border-emerald-400 opacity-60" : "border-white"} shadow hover:-translate-y-0.5 transition-transform`}
+                className={`rounded-xl overflow-hidden border-4 ${matched[p.word] ? "border-emerald-400 opacity-60" : "border-white"} shadow hover:-translate-y-0.5 transition-transform`}
               >
-                <img src={p.img} alt={p.word} className="w-full h-20 sm:h-24 object-contain p-2" />
+                <img src={p.img} alt={p.word} className="w-full h-20 sm:h-24 object-cover" />
               </button>
             ))}
           </div>

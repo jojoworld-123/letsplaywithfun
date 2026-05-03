@@ -37,7 +37,7 @@ export default function LearnMode() {
           <img
             src={topic.image}
             alt={topic.title}
-            className="w-full h-56 sm:h-72 object-contain p-3 anim-bob"
+            className="w-full h-56 sm:h-72 object-cover"
             data-testid={`learn-image-${topic.id}`}
           />
         </div>
@@ -53,8 +53,8 @@ export default function LearnMode() {
                 data-testid={`learn-bullet-${b.word}`}
                 className="bg-white rounded-2xl p-3 border-2 border-slate-100 shadow hover:-translate-y-0.5 transition-transform text-left"
               >
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br from-sky-50 to-pink-50">
-                  <img src={b.img} alt={b.word} className="w-full h-full object-contain p-2" />
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-100">
+                  <img src={b.img} alt={b.word} className="w-full h-full object-cover" />
                 </div>
                 <div className="font-extrabold text-slate-800 mt-2">{b.word}</div>
                 {b.desc ? <div className="text-xs text-slate-500">{b.desc}</div> : null}
