@@ -40,7 +40,7 @@ export default function LevelMap() {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      speak(`Welcome ${name || "friend"}! Choose a game to play and earn stars.`);
+      speak(`Welcome friend! Choose a game to play and earn stars.`);
     }, 500);
     return () => clearTimeout(t);
     // eslint-disable-next-line
@@ -51,7 +51,7 @@ export default function LevelMap() {
   return (
     <Layout testId="level-map" showBack={false}>
       <TeacherMascot
-        message={`Hi ${name || "friend"}! Pick any game island to play. Earn ${LEVELS.length * 3} stars to become a Champ! ⭐`}
+        message={`Hi friend! Pick any game island to play. Earn ${LEVELS.length * 3} stars to become a Champ! ⭐`}
       />
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 mt-3">

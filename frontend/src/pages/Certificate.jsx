@@ -13,10 +13,18 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 export default function CertificatePage() {
-  const { name, studentClass, studentId, stars, badges, reset } = useGame();
+  const { name, studentClass, studentId, stars, badges, reset, setNameClass } = useGame();
   const { speak } = useTTS();
   const certRef = useRef(null);
   const [downloading, setDownloading] = useState(false);
+  const [editName, setEditName] = useState(name && name !== "Champ" ? name : "");
+  const [editClass, setEditClass] = useState(studentClass || "1");
+
+  // Live update store as parent types so the certificate preview reflects it
+  useEffect(() => {
+    if (setNameClass) setNameClass(editName.trim() || "Little Champ", editClass);
+    // eslint-disable-next-line
+  }, [editName, editClass]);
 
   useEffect(() => {
     fireConfetti();
@@ -57,8 +65,44 @@ export default function CertificatePage() {
   return (
     <Layout title="🎉 Congratulations!" testId="certificate-page">
       <TeacherMascot
-        message={`Brilliant ${name || "friend"}! Your free certificate is ready. Tap Download to save it!`}
+        message={`Brilliant ${name && name !== "Champ" ? name : "friend"}! Your free certificate is ready. Type your name and tap Download!`}
       />
+
+      {/* Optional name input for parents */}
+      <div className="toy-card p-4 mb-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
+          <div className="sm:col-span-2">
+            <label className="font-bold text-slate-700 text-sm mb-1 block">
+              Child's Name (for certificate)
+            </label>
+            <input
+              data-testid="certificate-name-input"
+              type="text"
+              value={editName}
+              onChange={(e) => setEditName(e.target.value)}
+              placeholder="Type your name..."
+              maxLength={24}
+              className="pill-input text-xl py-3"
+            />
+          </div>
+          <div>
+            <label className="font-bold text-slate-700 text-sm mb-1 block">Class</label>
+            <div className="grid grid-cols-2 gap-2">
+              {["1", "2"].map((c) => (
+                <button
+                  key={c}
+                  type="button"
+                  data-testid={`certificate-class-${c}`}
+                  onClick={() => setEditClass(c)}
+                  className={`toy-btn py-3 text-lg ${editClass === c ? "bg-sky-400 text-white" : "bg-white text-sky-600 border-sky-200"}`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Certificate Preview */}
       <div className="overflow-x-auto no-scrollbar">

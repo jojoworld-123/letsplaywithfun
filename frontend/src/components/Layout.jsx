@@ -5,7 +5,7 @@ import { useGame } from "../store/gameStore";
 export default function Layout({ children, title, testId = "layout", showBack = true }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { stars, name } = useGame();
+  const { stars } = useGame();
   const isHome = location.pathname === "/levels" || location.pathname === "/";
 
   return (
@@ -29,11 +29,6 @@ export default function Layout({ children, title, testId = "layout", showBack = 
             <span className="font-extrabold text-lg sm:text-xl text-sky-700 hidden sm:block">Computer Champ</span>
           </Link>
           <div className="ml-auto flex items-center gap-2">
-            {name ? (
-              <span className="hidden sm:inline-block bg-white border-2 border-pink-200 text-pink-600 font-bold rounded-full px-3 py-1 text-sm">
-                Hi, {name}
-              </span>
-            ) : null}
             <span
               data-testid="star-counter"
               className="flex items-center gap-1 bg-amber-100 border-2 border-amber-300 rounded-full px-3 py-1 font-extrabold text-amber-700"

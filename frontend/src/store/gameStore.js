@@ -74,8 +74,12 @@ export function GameProvider({ children }) {
     try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
   }, []);
 
+  const setNameClass = useCallback((newName, newClass) => {
+    setState((s) => ({ ...s, name: newName, studentClass: newClass || s.studentClass }));
+  }, []);
+
   return (
-    <GameContext.Provider value={{ ...state, registerStudent, recordLevel, reset }}>
+    <GameContext.Provider value={{ ...state, registerStudent, recordLevel, reset, setNameClass }}>
       {children}
     </GameContext.Provider>
   );

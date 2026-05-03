@@ -8,22 +8,19 @@ import { Sparkles, Rocket } from "lucide-react";
 import { TEACHER } from "../data/content";
 
 export default function WelcomeScreen() {
-  const [name, setName] = useState("");
-  const [studentClass, setStudentClass] = useState("1");
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
   const { registerStudent } = useGame();
   const { speak } = useTTS();
 
-  const greeting = `Hello students! My name is Jyoti Singh, your teacher. Welcome to Computer Champ. Tell me your name and your class, and let us start learning together.`;
+  const greeting = `Hello students! My name is Jyoti Singh, your teacher. Welcome to Computer Champ. Let us start learning together!`;
 
-  const start = async (e) => {
-    e?.preventDefault();
-    if (!name.trim()) return;
+  const start = async () => {
     setSubmitting(true);
-    await registerStudent(name.trim(), studentClass);
-    speak(`Hello ${name}! Let us start learning.`);
-    setTimeout(() => navigate("/levels"), 300);
+    // Auto-register with default values; the certificate page lets parents fill name later.
+    await registerStudent("Champ", "1");
+    speak(`Let us start learning!`);
+    setTimeout(() => navigate("/levels"), 250);
   };
 
   return (
@@ -53,49 +50,22 @@ export default function WelcomeScreen() {
         </div>
 
         <TeacherMascot message={greeting} />
-        <div className="flex justify-end -mt-3 mb-2">
+        <div className="flex justify-end -mt-3 mb-4">
           <TTSButton text={greeting} testId="welcome-tts" size="sm" />
         </div>
 
-        <form onSubmit={start} className="space-y-4 mt-4">
-          <div>
-            <label className="font-bold text-slate-700 text-lg mb-1 block">Your Name</label>
-            <input
-              data-testid="welcome-name-input"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Type your name..."
-              className="pill-input"
-              maxLength={20}
-              required
-            />
-          </div>
-          <div>
-            <label className="font-bold text-slate-700 text-lg mb-1 block">Your Class</label>
-            <div className="grid grid-cols-2 gap-3">
-              {["1", "2"].map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  data-testid={`welcome-class-${c}`}
-                  onClick={() => setStudentClass(c)}
-                  className={`toy-btn py-4 text-2xl ${studentClass === c ? "bg-sky-400 text-white" : "bg-white text-sky-600 border-sky-200"}`}
-                >
-                  Class {c}
-                </button>
-              ))}
-            </div>
-          </div>
-          <button
-            type="submit"
-            data-testid="welcome-start-btn"
-            disabled={!name.trim() || submitting}
-            className="toy-btn w-full py-5 bg-gradient-to-r from-pink-400 to-amber-400 text-white text-2xl flex items-center justify-center gap-2 disabled:opacity-50"
-          >
-            <Rocket size={24} /> Let's Start!
-          </button>
-        </form>
+        <button
+          onClick={start}
+          data-testid="welcome-start-btn"
+          disabled={submitting}
+          className="toy-btn w-full py-5 bg-gradient-to-r from-pink-400 to-amber-400 text-white text-2xl flex items-center justify-center gap-2 disabled:opacity-50"
+        >
+          <Rocket size={24} /> Let's Play!
+        </button>
+
+        <p className="text-center text-slate-400 text-xs mt-4">
+          No login needed · Free certificate at the end
+        </p>
       </div>
     </div>
   );
