@@ -82,25 +82,29 @@ export default function CertificatePage() {
 };
 
   const downloadPNG = async () => {
-    if (!certRef.current) return;
-    setDownloading(true);
-    try {
-      const canvas = await renderCanvas();
-      const url = canvas.toDataURL("image/png");
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `Computer-Champ-${(editName || "Champ").replace(/\s+/g, "_")}.png`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      fireConfetti();
-      speak("Image certificate downloaded! Show it to your parents!");
-    } catch {
-      speak("Could not download. Please try again.");
-    } finally {
-      setDownloading(false);
-    }
-  };
+  if (!certRef.current) return;
+
+  setDownloading(true);
+
+  try {
+    // 🔥 IMPORTANT FIX
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    const canvas = await renderCanvas();
+    const url = canvas.toDataURL("image/png");
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Computer-Champ-${editName}.png`;
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+  } finally {
+    setDownloading(false);
+  }
+};
 
   const downloadPDF = async () => {
     if (!certRef.current) return;
