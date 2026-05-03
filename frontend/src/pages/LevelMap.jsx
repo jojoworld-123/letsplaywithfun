@@ -19,6 +19,10 @@ import {
   MessageCircleQuestion,
   ThumbsUp,
   PencilLine,
+  Wrench,
+  Brain,
+  Search,
+  Boxes,
 } from "lucide-react";
 
 const LEVELS = [
@@ -26,9 +30,13 @@ const LEVELS = [
   { id: "qa", title: "Q&A Master", icon: MessageCircleQuestion, color: "bg-indigo-400", to: "/qa" },
   { id: "truefalse", title: "True / False", icon: ThumbsUp, color: "bg-emerald-400", to: "/truefalse" },
   { id: "fill", title: "Fill Blanks", icon: PencilLine, color: "bg-teal-400", to: "/fill" },
+  { id: "build", title: "Build Computer", icon: Wrench, color: "bg-yellow-500", to: "/build" },
+  { id: "memory", title: "Memory Match", icon: Brain, color: "bg-violet-500", to: "/memory" },
   { id: "picture", title: "Picture Game", icon: ImageIcon, color: "bg-pink-400", to: "/picture" },
+  { id: "oddone", title: "Odd One Out", icon: Search, color: "bg-cyan-400", to: "/oddone" },
   { id: "quiz", title: "Quiz Game", icon: HelpCircle, color: "bg-violet-400", to: "/quiz" },
   { id: "match", title: "Match Game", icon: Puzzle, color: "bg-emerald-500", to: "/match" },
+  { id: "sort", title: "Sort It!", icon: Boxes, color: "bg-lime-500", to: "/sort" },
   { id: "spell", title: "Spell Game", icon: Type, color: "bg-amber-400", to: "/spell" },
   { id: "multitask", title: "Multitasking", icon: Headphones, color: "bg-rose-400", to: "/multitask" },
   { id: "speed", title: "Speed Game", icon: Zap, color: "bg-orange-400", to: "/speed" },
