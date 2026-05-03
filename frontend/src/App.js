@@ -1,52 +1,45 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { GameProvider, useGame } from "./store/gameStore";
+import WelcomeScreen from "./pages/WelcomeScreen";
+import LevelMap from "./pages/LevelMap";
+import LearnMode from "./pages/LearnMode";
+import PictureGame from "./pages/PictureGame";
+import QuizGame from "./pages/QuizGame";
+import MatchGame from "./pages/MatchGame";
+import SpellGame from "./pages/SpellGame";
+import MultitaskingGame from "./pages/MultitaskingGame";
+import SpeedGame from "./pages/SpeedGame";
+import JumbleGame from "./pages/JumbleGame";
+import CertificatePage from "./pages/Certificate";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+function ProtectedRoute({ children }) {
+  const { studentId } = useGame();
+  if (!studentId) return <Navigate to="/" replace />;
+  return children;
+}
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GameProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<WelcomeScreen />} />
+            <Route path="/levels" element={<ProtectedRoute><LevelMap /></ProtectedRoute>} />
+            <Route path="/learn" element={<ProtectedRoute><LearnMode /></ProtectedRoute>} />
+            <Route path="/picture" element={<ProtectedRoute><PictureGame /></ProtectedRoute>} />
+            <Route path="/quiz" element={<ProtectedRoute><QuizGame /></ProtectedRoute>} />
+            <Route path="/match" element={<ProtectedRoute><MatchGame /></ProtectedRoute>} />
+            <Route path="/spell" element={<ProtectedRoute><SpellGame /></ProtectedRoute>} />
+            <Route path="/multitask" element={<ProtectedRoute><MultitaskingGame /></ProtectedRoute>} />
+            <Route path="/speed" element={<ProtectedRoute><SpeedGame /></ProtectedRoute>} />
+            <Route path="/jumble" element={<ProtectedRoute><JumbleGame /></ProtectedRoute>} />
+            <Route path="/certificate" element={<ProtectedRoute><CertificatePage /></ProtectedRoute>} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </GameProvider>
     </div>
   );
 }
