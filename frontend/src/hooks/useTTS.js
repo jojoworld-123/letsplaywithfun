@@ -11,36 +11,47 @@ export function useTTS() {
       const voices = window.speechSynthesis.getVoices();
       if (!voices.length) return;
 
-      // Priority order: Indian English female -> Indian English male -> Hindi -> any English female
-      const indianFemaleNames = [
-        "Microsoft Heera",
-        "Microsoft Heera - English (India)",
-        "Veena",
-        "Google हिन्दी",
-        "Lekha", // macOS Hindi
-        "Rishi",
+      // Highest priority: clear, kid-friendly female English voices with great pronunciation
+      const preferredFemale = [
+        "Google US English",
+        "Google UK English Female",
+        "Microsoft Aria Online (Natural) - English (United States)",
+        "Microsoft Jenny Online (Natural) - English (United States)",
+        "Microsoft Aria",
+        "Microsoft Jenny",
+        "Microsoft Zira",
+        "Microsoft Zira - English (United States)",
+        "Samantha",
+        "Karen",
+        "Tessa",
+        "Moira",
+        "Fiona",
       ];
 
-      // 1) Named Indian voices
-      let chosen = voices.find((v) => indianFemaleNames.some((n) => v.name && v.name.toLowerCase().includes(n.toLowerCase())));
+      // 1) Try exact preferred female voices
+      let chosen = voices.find((v) =>
+        preferredFemale.some((n) => v.name && v.name.toLowerCase() === n.toLowerCase())
+      );
 
-      // 2) Any en-IN voice (prefer female)
+      // 2) Try contains-match for natural/female English voices
       if (!chosen) {
-        const inEn = voices.filter((v) => v.lang && v.lang.toLowerCase() === "en-in");
-        chosen = inEn.find((v) => /female|heera|veena|priya|kala|aditi/i.test(v.name)) || inEn[0];
+        chosen = voices.find(
+          (v) =>
+            v.lang &&
+            /^en[-_](us|gb|au)/i.test(v.lang) &&
+            /female|aria|jenny|zira|samantha|karen|tessa|moira|fiona|natural/i.test(v.name)
+        );
       }
 
-      // 3) Any hi-IN voice
+      // 3) Any en-US or en-GB voice
       if (!chosen) {
-        chosen = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("hi"));
+        chosen = voices.find((v) => v.lang && /^en[-_](us|gb)/i.test(v.lang));
       }
 
-      // 4) Fallback to a general English female
+      // 4) Any English voice
       if (!chosen) {
-        const enFemale = ["Google UK English Female", "Microsoft Zira", "Samantha", "Karen", "Tessa"];
-        chosen = voices.find((v) => enFemale.some((n) => v.name && v.name.toLowerCase().includes(n.toLowerCase())));
+        chosen = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("en"));
       }
-      if (!chosen) chosen = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("en"));
 
       voiceRef.current = chosen || voices[0];
     };
@@ -57,9 +68,11 @@ export function useTTS() {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(String(text));
       if (voiceRef.current) u.voice = voiceRef.current;
-      u.lang = (voiceRef.current && voiceRef.current.lang) || "en-IN";
+      // Force clear English locale (US) so the engine uses crisp pronunciation
+      u.lang = (voiceRef.current && voiceRef.current.lang) || "en-US";
+      // Slow + slightly higher pitch = warm, friendly teacher voice that kids understand
       u.rate = opts.rate ?? 0.85;
-      u.pitch = opts.pitch ?? 1.1;
+      u.pitch = opts.pitch ?? 1.15;
       u.volume = opts.volume ?? 1;
       u.onstart = () => setSpeaking(true);
       u.onend = () => setSpeaking(false);
