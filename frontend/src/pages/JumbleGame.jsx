@@ -112,7 +112,7 @@ export default function JumbleGame() {
 
   return (
     <Layout title="Jumble Master 🔀" testId="jumble-game">
-      <TeacherMascot message={`Round ${idx + 1} of ${round.length} · 100+ words!`} />
+      <TeacherMascot message={`Round ${idx + 1} of ${round.length} · ${ALL_JUMBLE_WORDS.length}+ words!`} />
       <div className="toy-card p-5 anim-pop">
         <div className="flex items-center justify-between gap-2">
           <p className="font-bold text-slate-700">Make the word from the picture:</p>

@@ -130,5 +130,46 @@ export const EXTRA_WORDS = [
   make("mixer", IMG.mixer, "Blends food."),
 ];
 
-// Combined 100+ words
-export const ALL_JUMBLE_WORDS = [...USER_WORDS, ...EXTRA_WORDS];
+// Combined 100+ words (USER_WORDS + EXTRA_WORDS + COMMON_COMPUTER_WORDS = 140+)
+
+// Common computer words every kid should know before using a computer
+export const COMMON_COMPUTER_WORDS = [
+  make("power", IMG.electricity, "Turns the computer on."),
+  make("button", IMG.computer, "Press it to do something."),
+  make("password", IMG.computer, "A secret to keep you safe."),
+  make("login", IMG.smartphone, "Enter to start using."),
+  make("menu", IMG.book, "List of things to choose."),
+  make("app", IMG.smartphone, "A program on your phone."),
+  make("cursor", IMG.mouse, "The little arrow on screen."),
+  make("arrow", IMG.mouse, "Points where to click."),
+  make("scroll", IMG.mouse, "Move up and down."),
+  make("swipe", IMG.smartphone, "Slide your finger."),
+  make("tap", IMG.smartphone, "Touch the screen once."),
+  make("drag", IMG.mouse, "Hold and move."),
+  make("link", IMG.internet, "Takes you to a new page."),
+  make("share", IMG.internet, "Send to someone."),
+  make("send", IMG.internet, "Make it go."),
+  make("message", IMG.smartphone, "A short note."),
+  make("slide", IMG.book, "One page of a slideshow."),
+  make("font", IMG.pen, "Style of letters."),
+  make("bold", IMG.pen, "Make letters thicker."),
+  make("edit", IMG.pen, "Change something."),
+  make("copy", IMG.book, "Make another one."),
+  make("paste", IMG.book, "Place a copy here."),
+  make("delete", IMG.scissors, "Remove it."),
+  make("refresh", IMG.computer, "Load again."),
+  make("charge", IMG.electricity, "Fill the battery."),
+  make("battery", IMG.electricity, "Stores power."),
+  make("cable", IMG.electricity, "A wire to connect."),
+  make("usb", IMG.cpu, "A small port for plugs."),
+  make("headphone", IMG.speaker, "Listen with your ears."),
+  make("microphone", IMG.speaker, "Speak into it."),
+  make("webcam", IMG.video, "A small camera on a computer."),
+  make("calendar", IMG.clock, "Shows days and months."),
+  make("map", IMG.internet, "Helps us find places."),
+  make("calculator", IMG.computer, "Helps us add numbers."),
+  make("notepad", IMG.book, "Write notes on a computer."),
+];
+
+// Combined 140+ words
+export const ALL_JUMBLE_WORDS = [...USER_WORDS, ...EXTRA_WORDS, ...COMMON_COMPUTER_WORDS];

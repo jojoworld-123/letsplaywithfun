@@ -10,9 +10,8 @@ import { fireConfetti } from "../components/Confetti";
 import { Lightbulb, RefreshCw, Star } from "lucide-react";
 
 const pickRound = () => {
-  // 8 simple words from the list (length <= 8) for the spell game.
-  const easy = ALL_JUMBLE_WORDS.filter((w) => w.letters.length <= 8 && w.letters.length >= 3);
-  return easy.sort(() => 0.5 - Math.random()).slice(0, 8);
+  // Use ALL words (26 user words + 80 extras + 35 common computer words = 140+)
+  return ALL_JUMBLE_WORDS.slice().sort(() => 0.5 - Math.random()).slice(0, 12);
 };
 
 const shuffleLetters = (word) => {
@@ -98,6 +97,12 @@ export default function SpellGame() {
   return (
     <Layout title="Spell Game 🔤" testId="spell-game">
       <TeacherMascot message="Tap letters to spell the word. Use the speaker to hear it again." />
+
+      <div className="flex justify-center mb-2">
+        <span className="bg-amber-100 border-2 border-amber-300 text-amber-700 font-bold rounded-full px-3 py-1 text-xs">
+          📚 {ALL_JUMBLE_WORDS.length} words to learn · 12 per round
+        </span>
+      </div>
 
       <div className="toy-card p-5 anim-pop">
         <div className="flex items-center justify-between gap-2">
