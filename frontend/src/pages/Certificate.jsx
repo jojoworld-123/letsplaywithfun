@@ -166,6 +166,7 @@ export default function CertificatePage() {
       <div className="overflow-x-auto no-scrollbar">
         <div
           ref={certRef}
+          id="certificate"
           data-testid="certificate-preview"
           className="mx-auto my-3"
           style={{
