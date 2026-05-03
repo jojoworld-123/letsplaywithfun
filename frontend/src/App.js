@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { GameProvider, useGame } from "./store/gameStore";
 import WelcomeScreen from "./pages/WelcomeScreen";
