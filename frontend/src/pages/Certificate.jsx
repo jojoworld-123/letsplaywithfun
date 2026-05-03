@@ -71,13 +71,13 @@ export default function CertificatePage() {
   const renderCanvas = async () => {
   const element = document.getElementById("certificate");
 
-  // 🛑 IMPORTANT DELAY (state update ke liye)
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  await new Promise((resolve) => setTimeout(resolve, 400));
 
   return await html2canvas(element, {
     scale: 3,
     useCORS: true,
     backgroundColor: "#FFFBEF",
+    ignoreElements: (el) => el.tagName === "INPUT",
   });
 };
 
