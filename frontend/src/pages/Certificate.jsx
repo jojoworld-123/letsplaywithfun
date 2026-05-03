@@ -69,10 +69,13 @@ export default function CertificatePage() {
   }, []);
 
   const renderCanvas = async () => {
-    return await html2canvas(certRef.current, {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: "#FFFBEB",
+  const element = document.getElementById("certificate");
+  return await html2canvas(element, {
+    scale: 3,
+    useCORS: true,
+    backgroundColor: "#FFFBEF",
+  });
+};
       logging: false,
     });
   };
