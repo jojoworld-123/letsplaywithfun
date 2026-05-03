@@ -76,9 +76,6 @@ export default function CertificatePage() {
     backgroundColor: "#FFFBEF",
   });
 };
-      logging: false,
-    });
-  };
 
   const downloadPNG = async () => {
     if (!certRef.current) return;
