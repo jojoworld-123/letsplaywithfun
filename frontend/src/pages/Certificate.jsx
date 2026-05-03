@@ -173,22 +173,22 @@ export default function CertificatePage() {
       {/* Certificate Preview */}
       <div className="overflow-x-auto no-scrollbar">
         <div
-          ref={certRef}
-          id="certificate"
-          data-testid="certificate-preview"
-          className="mx-auto my-3"
-          style={{
-            width: 760,
-            maxWidth: "100%",
-            background: "linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FCE7F3 100%)",
-            border: "12px solid #F59E0B",
-            borderRadius: 24,
-            padding: 32,
-            position: "relative",
-            fontFamily: "Fredoka, Nunito, sans-serif",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-          }}
-        >
+  ref={certRef}
+  id="certificate"
+  data-testid="certificate-preview"
+  className="mx-auto my-3"
+  style={{
+    width: 760,
+    maxWidth: "100%",
+    background: "linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FCE7F3 100%)",
+    border: "12px solid #F59E0B",
+    borderRadius: 24,
+    padding: 32,
+    position: "relative",
+    fontFamily: "Fredoka, Nunito, sans-serif",
+    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+  }}
+>
           {/* corner decorations */}
           <div style={{ position: "absolute", top: 12, left: 12, fontSize: 28 }}>⭐</div>
           <div style={{ position: "absolute", top: 12, right: 12, fontSize: 28 }}>⭐</div>
