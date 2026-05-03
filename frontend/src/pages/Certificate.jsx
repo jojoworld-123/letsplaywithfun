@@ -120,7 +120,7 @@ export default function CertificatePage() {
     }
   };
 
-  const displayName = editName.trim() || "Little Champ";
+  const displayName = (editName || name || "").trim() || "Little Champ";
 
   return (
     <Layout title="🎉 Congratulations!" testId="certificate-page">
