@@ -28,6 +28,18 @@ function ProtectedRoute({ children }) {
 }
 
 function App() {
+  const speak = (text) => {
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-IN";
+    speech.rate = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  };
+
+  useEffect(() => {
+    speak("Welcome to Computer Champ");
+  }, []);
   return (
     <div className="App">
       <GameProvider>
