@@ -4,7 +4,7 @@
 export const TEACHER = {
   name: "Jyoti Ma'am",
   fullName: "Jyoti Singh",
-  photo: "https://customer-assets.emergentagent.com/job_smart-kid-learn/artifacts/3xm73yle_FB_IMG_1777226154048.jpg",
+  photo: "/jyoti.jpg",
 };
 
 // ---- Image library (real photos) ----
