@@ -175,6 +175,19 @@ export default function CertificatePage() {
         <div
   ref={certRef}
   id="certificate"
+          <div style={{ textAlign: "center", marginTop: 20 }}>
+  <div style={{ fontSize: 20, color: "#374151" }}>
+    This certificate is proudly presented to
+  </div>
+
+  <div style={{ fontSize: 32, fontWeight: "bold", marginTop: 10 }}>
+    {displayName}
+  </div>
+
+  <div style={{ fontSize: 18, marginTop: 6 }}>
+    Class {editClass}
+  </div>
+</div>
   data-testid="certificate-preview"
   className="mx-auto my-3"
   style={{
