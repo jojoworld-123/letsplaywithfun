@@ -16,10 +16,12 @@ import {
   Shuffle,
   Award,
   Lock,
+  MessageCircleQuestion,
 } from "lucide-react";
 
 const LEVELS = [
   { id: "learn", title: "Learn Mode", icon: BookOpen, color: "bg-sky-400", to: "/learn" },
+  { id: "qa", title: "Q&A Master", icon: MessageCircleQuestion, color: "bg-indigo-400", to: "/qa" },
   { id: "picture", title: "Picture Game", icon: ImageIcon, color: "bg-pink-400", to: "/picture" },
   { id: "quiz", title: "Quiz Game", icon: HelpCircle, color: "bg-violet-400", to: "/quiz" },
   { id: "match", title: "Match Game", icon: Puzzle, color: "bg-emerald-400", to: "/match" },
