@@ -12,6 +12,8 @@ import MultitaskingGame from "./pages/MultitaskingGame";
 import SpeedGame from "./pages/SpeedGame";
 import JumbleGame from "./pages/JumbleGame";
 import QAGame from "./pages/QAGame";
+import TrueFalseGame from "./pages/TrueFalseGame";
+import FillBlanksGame from "./pages/FillBlanksGame";
 import CertificatePage from "./pages/Certificate";
 
 function ProtectedRoute({ children }) {
@@ -37,6 +39,8 @@ function App() {
             <Route path="/speed" element={<ProtectedRoute><SpeedGame /></ProtectedRoute>} />
             <Route path="/jumble" element={<ProtectedRoute><JumbleGame /></ProtectedRoute>} />
             <Route path="/qa" element={<ProtectedRoute><QAGame /></ProtectedRoute>} />
+            <Route path="/truefalse" element={<ProtectedRoute><TrueFalseGame /></ProtectedRoute>} />
+            <Route path="/fill" element={<ProtectedRoute><FillBlanksGame /></ProtectedRoute>} />
             <Route path="/certificate" element={<ProtectedRoute><CertificatePage /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

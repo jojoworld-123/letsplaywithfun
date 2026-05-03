@@ -8,7 +8,7 @@ import { useGame } from "../store/gameStore";
 import { fireConfetti } from "../components/Confetti";
 import { ChevronRight, RotateCcw, BookOpen, Star } from "lucide-react";
 
-// 5 EXACT user questions with image + 3 MCQ options for the test step
+// 5 EXACT user questions + 6 NEW user questions (natural, man-made, machine, manual machines, types of computers, places computers used)
 const QA = [
   {
     q: "What is a computer?",
@@ -51,6 +51,73 @@ const QA = [
     a: "Speed and accuracy.",
     img: IMG.speed,
     options: ["Speed and accuracy", "Heavy and noisy", "Soft and small"],
+    answer: 0,
+  },
+  // ----- 6 newly added Q&A -----
+  {
+    q: "What is a natural thing?",
+    a: "Things made by nature are called natural things.",
+    img: IMG.tree,
+    options: [
+      "Things made by nature are called natural things",
+      "Things made in a factory",
+      "Things made by computers",
+    ],
+    answer: 0,
+  },
+  {
+    q: "What is a man-made thing?",
+    a: "Things made by humans are called man-made things.",
+    img: IMG.car,
+    options: [
+      "Things made by humans are called man-made things",
+      "Things found in the river",
+      "Things grown on a tree",
+    ],
+    answer: 0,
+  },
+  {
+    q: "What is a machine?",
+    a: "A thing that helps us do work easily and faster is called a machine.",
+    img: IMG.washingMachine,
+    options: [
+      "A thing that helps us do work easily and faster",
+      "A type of fruit",
+      "A type of song",
+    ],
+    answer: 0,
+  },
+  {
+    q: "Name two manual machines.",
+    a: "Scissors and bicycle are manual machines.",
+    img: IMG.scissors,
+    options: [
+      "Scissors and bicycle",
+      "Refrigerator and fan",
+      "Television and radio",
+    ],
+    answer: 0,
+  },
+  {
+    q: "Name the types of computers.",
+    a: "Desktop computer, laptop, smartphone and tablet.",
+    img: IMG.laptop,
+    options: [
+      "Desktop, laptop, smartphone and tablet",
+      "Tree, river, mountain and sun",
+      "Mixer, fan, fridge and cooler",
+    ],
+    answer: 0,
+  },
+  {
+    q: "Name places where computers are used.",
+    a: "Computers are used at home, school, bank, hospital, shops, office and railway station.",
+    img: IMG.house,
+    options: [
+      "Home, school, bank, hospital and shops",
+      "Only on trees",
+      "Only inside the river",
+    ],
     answer: 0,
   },
 ];

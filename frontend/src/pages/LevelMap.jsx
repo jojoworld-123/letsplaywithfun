@@ -17,14 +17,18 @@ import {
   Award,
   Lock,
   MessageCircleQuestion,
+  ThumbsUp,
+  PencilLine,
 } from "lucide-react";
 
 const LEVELS = [
   { id: "learn", title: "Learn Mode", icon: BookOpen, color: "bg-sky-400", to: "/learn" },
   { id: "qa", title: "Q&A Master", icon: MessageCircleQuestion, color: "bg-indigo-400", to: "/qa" },
+  { id: "truefalse", title: "True / False", icon: ThumbsUp, color: "bg-emerald-400", to: "/truefalse" },
+  { id: "fill", title: "Fill Blanks", icon: PencilLine, color: "bg-teal-400", to: "/fill" },
   { id: "picture", title: "Picture Game", icon: ImageIcon, color: "bg-pink-400", to: "/picture" },
   { id: "quiz", title: "Quiz Game", icon: HelpCircle, color: "bg-violet-400", to: "/quiz" },
-  { id: "match", title: "Match Game", icon: Puzzle, color: "bg-emerald-400", to: "/match" },
+  { id: "match", title: "Match Game", icon: Puzzle, color: "bg-emerald-500", to: "/match" },
   { id: "spell", title: "Spell Game", icon: Type, color: "bg-amber-400", to: "/spell" },
   { id: "multitask", title: "Multitasking", icon: Headphones, color: "bg-rose-400", to: "/multitask" },
   { id: "speed", title: "Speed Game", icon: Zap, color: "bg-orange-400", to: "/speed" },
