@@ -15,7 +15,7 @@ export default function WelcomeScreen() {
   const { registerStudent } = useGame();
   const { speak } = useTTS();
 
-  const greeting = `Hi! I am Jyoti Ma'am, your teacher. Welcome to Computer Champ! Tell me your name and class to begin our fun journey.`;
+  const greeting = `Namaste dear students! I am Jyoti Ma'am, your computer teacher. Welcome to Computer Champ! Please tell me your good name and your class, and we shall start our fun learning journey together. Are you ready, my child?`;
 
   const start = async (e) => {
     e?.preventDefault();

@@ -10,18 +10,38 @@ export function useTTS() {
     const pickVoice = () => {
       const voices = window.speechSynthesis.getVoices();
       if (!voices.length) return;
-      const preferred = [
-        "Google UK English Female",
-        "Google US English",
-        "Microsoft Zira",
-        "Samantha",
-        "Karen",
-        "Tessa",
+
+      // Priority order: Indian English female -> Indian English male -> Hindi -> any English female
+      const indianFemaleNames = [
+        "Microsoft Heera",
+        "Microsoft Heera - English (India)",
         "Veena",
+        "Google हिन्दी",
+        "Lekha", // macOS Hindi
+        "Rishi",
       ];
-      let chosen = voices.find((v) => preferred.includes(v.name));
-      if (!chosen) chosen = voices.find((v) => /female|zira|samantha|karen|tessa/i.test(v.name));
+
+      // 1) Named Indian voices
+      let chosen = voices.find((v) => indianFemaleNames.some((n) => v.name && v.name.toLowerCase().includes(n.toLowerCase())));
+
+      // 2) Any en-IN voice (prefer female)
+      if (!chosen) {
+        const inEn = voices.filter((v) => v.lang && v.lang.toLowerCase() === "en-in");
+        chosen = inEn.find((v) => /female|heera|veena|priya|kala|aditi/i.test(v.name)) || inEn[0];
+      }
+
+      // 3) Any hi-IN voice
+      if (!chosen) {
+        chosen = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("hi"));
+      }
+
+      // 4) Fallback to a general English female
+      if (!chosen) {
+        const enFemale = ["Google UK English Female", "Microsoft Zira", "Samantha", "Karen", "Tessa"];
+        chosen = voices.find((v) => enFemale.some((n) => v.name && v.name.toLowerCase().includes(n.toLowerCase())));
+      }
       if (!chosen) chosen = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("en"));
+
       voiceRef.current = chosen || voices[0];
     };
     pickVoice();
@@ -37,8 +57,9 @@ export function useTTS() {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(String(text));
       if (voiceRef.current) u.voice = voiceRef.current;
-      u.rate = opts.rate ?? 0.9;
-      u.pitch = opts.pitch ?? 1.15;
+      u.lang = (voiceRef.current && voiceRef.current.lang) || "en-IN";
+      u.rate = opts.rate ?? 0.85;
+      u.pitch = opts.pitch ?? 1.1;
       u.volume = opts.volume ?? 1;
       u.onstart = () => setSpeaking(true);
       u.onend = () => setSpeaking(false);
