@@ -76,8 +76,8 @@ export default function QuizGame() {
           <TTSButton text={cur.speak || cur.q} testId={`quiz-tts-${idx}`} size="sm" />
         </div>
         {cur.img ? (
-          <div className="rounded-2xl overflow-hidden bg-slate-100 border-4 border-white shadow-inner mt-3">
-            <img src={cur.img} alt="quiz" className="w-full h-44 sm:h-56 object-cover" />
+          <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-violet-100 via-amber-50 to-sky-100 border-4 border-white shadow-inner mt-3">
+            <img src={cur.img} alt="quiz" className="w-full h-44 sm:h-56 object-contain p-3" />
           </div>
         ) : null}
         <div className="grid grid-cols-1 gap-3 mt-5">

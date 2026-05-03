@@ -7,53 +7,59 @@ export const TEACHER = {
   photo: "/jyoti.jpg",
 };
 
-// ---- Image library (real photos) ----
+// ---- Image library (3D cartoon illustrations) ----
+// Primary source: Microsoft Fluent UI Emoji 3D (CC-BY 4.0)
+// Fallback: icons8 3d-fluency for items missing in Fluent (e.g., CPU tower, fridge, washer)
+const F = (folder, slug) =>
+  `https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/${encodeURI(folder)}/3D/${slug}_3d.png`;
+const I = (slug) => `https://img.icons8.com/3d-fluency/256/${slug}.png`;
+
 export const IMG = {
-  computer: "https://images.unsplash.com/photo-1631452090710-f3914f393618?auto=format&fit=crop&w=900&q=80",
-  cpu: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80", // CPU cabinet/tower
-  monitor: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80",
-  keyboard: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80",
-  mouse: "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80",
-  speaker: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=80",
-  printer: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=900&q=80",
-  laptop: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
-  tablet: "https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=900&q=80",
-  smartphone: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-  desktop: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=80",
+  computer: F("Desktop computer", "desktop_computer"),
+  cpu: "/cpu-tower.svg", // Custom CPU cabinet/tower SVG (NEVER brain, NEVER chip)
+  monitor: F("Television", "television"),
+  keyboard: F("Keyboard", "keyboard"),
+  mouse: F("Computer mouse", "computer_mouse"),
+  speaker: F("Speaker high volume", "speaker_high_volume"),
+  printer: F("Printer", "printer"),
+  laptop: F("Laptop", "laptop"),
+  tablet: F("Notebook", "notebook"), // tablet-like flat device
+  smartphone: F("Mobile phone", "mobile_phone"),
+  desktop: F("Desktop computer", "desktop_computer"),
   // Nature
-  tree: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=80",
-  mountain: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
-  sun: "https://images.unsplash.com/photo-1622278647429-71bdf9acafc5?auto=format&fit=crop&w=900&q=80",
-  river: "https://images.unsplash.com/photo-1437652010333-fbf2cb02f8e8?auto=format&fit=crop&w=900&q=80",
+  tree: F("Deciduous tree", "deciduous_tree"),
+  mountain: F("Mountain", "mountain"),
+  sun: F("Sun", "sun"),
+  river: F("Water wave", "water_wave"),
   // Man-made
-  car: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
-  house: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80",
-  road: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=80",
-  chair: "https://images.unsplash.com/photo-1561677978-583a8c7a4b43?auto=format&fit=crop&w=900&q=80",
+  car: F("Automobile", "automobile"),
+  house: F("House", "house"),
+  road: I("road"),
+  chair: F("Chair", "chair"),
   // Machines
-  fan: "https://images.unsplash.com/photo-1565374675473-dac3c1d97a91?auto=format&fit=crop&w=900&q=80",
-  mixer: "https://images.unsplash.com/photo-1556909114-44e3e9399a2e?auto=format&fit=crop&w=900&q=80",
-  washingMachine: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=900&q=80",
-  refrigerator: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=900&q=80",
-  bicycle: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=900&q=80",
-  scissors: "https://images.unsplash.com/photo-1583335026601-d2399a8b3e34?auto=format&fit=crop&w=900&q=80",
-  cooler: "https://images.unsplash.com/photo-1631083215283-b1e563f55c4e?auto=format&fit=crop&w=900&q=80",
-  clock: "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=900&q=80",
-  toy: "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=900&q=80",
-  electricity: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80",
+  fan: I("fan-2"),
+  mixer: I("milkshake"),
+  washingMachine: I("washing-machine"),
+  refrigerator: I("fridge"),
+  bicycle: F("Bicycle", "bicycle"),
+  scissors: F("Scissors", "scissors"),
+  cooler: F("Snowflake", "snowflake"),
+  clock: F("Mantelpiece clock", "mantelpiece_clock"),
+  toy: F("Teddy bear", "teddy_bear"),
+  electricity: F("High voltage", "high_voltage"),
   // Activities
-  music: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80",
-  draw: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
-  game: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
-  video: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=900&q=80",
-  book: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=900&q=80",
-  pen: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80",
+  music: F("Musical notes", "musical_notes"),
+  draw: F("Artist palette", "artist_palette"),
+  game: F("Video game", "video_game"),
+  video: F("Movie camera", "movie_camera"),
+  book: F("Open book", "open_book"),
+  pen: F("Fountain pen", "fountain_pen"),
   // Humans/family
-  humans: "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80",
-  // Concept icons (use real photos)
-  speed: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
-  storage: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=900&q=80",
-  internet: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80",
+  humans: I("group"),
+  // Concept icons
+  speed: F("Stopwatch", "stopwatch"),
+  storage: F("Floppy disk", "floppy_disk"),
+  internet: F("Globe with meridians", "globe_with_meridians"),
 };
 
 // ---- Learn Mode topics ----

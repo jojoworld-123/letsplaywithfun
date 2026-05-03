@@ -84,8 +84,8 @@ export default function SpeedGame() {
       <div className="toy-card p-5 anim-pop">
         <h2 className="text-xl sm:text-2xl font-extrabold text-slate-800">{cur.q}</h2>
         {cur.img ? (
-          <div className="rounded-2xl overflow-hidden bg-slate-100 border-4 border-white shadow-inner mt-3">
-            <img src={cur.img} alt="quiz" className="w-full h-36 sm:h-44 object-cover" />
+          <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-orange-100 via-amber-50 to-pink-100 border-4 border-white shadow-inner mt-3">
+            <img src={cur.img} alt="quiz" className="w-full h-36 sm:h-44 object-contain p-3" />
           </div>
         ) : null}
         <div className="grid grid-cols-1 gap-3 mt-4">

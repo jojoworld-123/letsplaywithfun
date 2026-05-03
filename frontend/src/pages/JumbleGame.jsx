@@ -119,8 +119,8 @@ export default function JumbleGame() {
           <TTSButton text={`Make the word: ${cur.word}`} testId={`jumble-tts-${idx}`} size="sm" />
         </div>
 
-        <div className="rounded-2xl overflow-hidden bg-slate-100 border-4 border-white shadow-inner mt-3">
-          <img src={cur.img} alt={cur.word} className="w-full h-40 sm:h-52 object-cover" />
+        <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-fuchsia-100 via-amber-50 to-sky-100 border-4 border-white shadow-inner mt-3">
+          <img src={cur.img} alt={cur.word} className="w-full h-40 sm:h-52 object-contain p-3" />
         </div>
 
         <p className="text-center text-slate-500 mt-2 text-sm">

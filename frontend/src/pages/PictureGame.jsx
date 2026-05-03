@@ -68,8 +68,8 @@ export default function PictureGame() {
           <p className="font-bold text-slate-700 text-lg">What is this?</p>
           <TTSButton text={`What is this? ${cur.hint}`} testId={`picture-tts-${idx}`} size="sm" />
         </div>
-        <div className="rounded-2xl overflow-hidden bg-slate-100 border-4 border-white shadow-inner mt-3">
-          <img src={cur.img} alt="item" className="w-full h-56 sm:h-72 object-cover" />
+        <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-pink-100 via-amber-50 to-sky-100 border-4 border-white shadow-inner mt-3">
+          <img src={cur.img} alt="item" className="w-full h-56 sm:h-72 object-contain p-3 anim-bob" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
           {cur.options.map((opt, i) => {
