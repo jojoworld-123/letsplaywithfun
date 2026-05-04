@@ -5,8 +5,7 @@ export default function TTSButton({
   text,
   label = "Play",
   testId = "tts-button",
-  size = "md",
-  lang = "en"
+  size = "md"
 }) {
   const { speak, speaking, stop } = useTTS();
 
@@ -22,7 +21,7 @@ export default function TTSButton({
 
   const handle = () => {
     if (speaking) stop();
-    else speak(text, lang); // ✅ IMPORTANT FIX
+    else speak(text); // ✅ only English
   };
 
   return (
@@ -36,3 +35,4 @@ export default function TTSButton({
     </button>
   );
 }
+``
