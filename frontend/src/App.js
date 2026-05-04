@@ -29,12 +29,16 @@ function ProtectedRoute({ children }) {
 
 function App() {
   const speak = (text) => {
+  window.speechSynthesis.cancel();
+
   const speech = new SpeechSynthesisUtterance(text);
+
   speech.lang = "en-IN";
   speech.rate = 1;
 
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(speech);
+  setTimeout(() => {
+    window.speechSynthesis.speak(speech);
+  }, 100);
 };
   return (
     <div className="App">
