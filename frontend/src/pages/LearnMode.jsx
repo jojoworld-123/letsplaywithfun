@@ -61,7 +61,7 @@ const [voiceLang, setVoiceLang] = useState("en");
             {topic.bullets.map((b) => (
               <button
                 key={b.word}
-                onClick={() => speak(`${b.word}. ${b.desc}`)}
+                onClick={() => speak(`${b.word}. ${b.desc}`, voiceLang)}
                 data-testid={`learn-bullet-${b.word}`}
                 className="bg-white rounded-2xl p-3 border-2 border-slate-100 shadow hover:-translate-y-0.5 transition-transform text-left"
               >
