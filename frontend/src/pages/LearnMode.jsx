@@ -14,9 +14,8 @@ export default function LearnMode() {
   const { speak } = useTTS();
 
   useEffect(() => {
-  const t = setTimeout(() => speak(topic.speak || topic.text), 350);
-  return () => clearTimeout(t);
-}, [idx, topic.speak, topic.text, speak]);
+  // auto voice disable
+}, [idx]);
   const next = () => {
     if (idx < LEARN_TOPICS.length - 1) setIdx(idx + 1);
     else recordLevel("learn", 3);
