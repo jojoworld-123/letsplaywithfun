@@ -12,6 +12,7 @@ export default function LearnMode() {
   const topic = LEARN_TOPICS[idx];
   const { recordLevel } = useGame();
   const { speak } = useTTS();
+const [voiceLang, setVoiceLang] = useState("en");
 
   useEffect(() => {
   // auto voice disable
@@ -28,7 +29,20 @@ export default function LearnMode() {
       <div className="toy-card p-5 sm:p-6 anim-pop">
         <div className="flex items-center justify-between gap-3 mb-3">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-sky-700">{topic.title}</h2>
-          <TTSButton text={topic.speak || topic.text} testId={`learn-tts-${topic.id}`} />
+         <div className="flex items-center gap-2">
+  <button
+    onClick={() => setVoiceLang(voiceLang === "en" ? "hi" : "en")}
+    className="px-3 py-2 bg-white border rounded"
+  >
+    🌐 {voiceLang === "en" ? "English" : "Hindi"}
+  </button>
+
+  <TTSButton
+    text={topic.speak || topic.text}
+    testId={`learn-tts-${topic.id}`}
+    lang={voiceLang}
+  />
+</div>
         </div>
 
         <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 via-amber-50 to-pink-100 border-4 border-white shadow-inner">
