@@ -212,4 +212,47 @@ export default function SpellGame() {
               className="bg-white border-2 border-amber-200 rounded-xl w-12 h-14 flex items-center justify-center text-2xl font-extrabold text-amber-700"
             >
               {l.ch}
-            </button
+            </button>
+))}
+        </div>
+
+        <div className="flex flex-wrap gap-3 mt-4 justify-center">
+          <button
+            onClick={() => setHintShown(true)}
+            className="toy-btn bg-amber-300 text-slate-900 px-4 py-3 flex items-center gap-1"
+          >
+            <Lightbulb size={18} />
+            Hint
+          </button>
+
+          <button
+            onClick={reset}
+            className="toy-btn bg-white text-slate-700 border-slate-200 px-4 py-3 flex items-center gap-1"
+          >
+            <RefreshCw size={18} />
+            Reset
+          </button>
+
+          <button
+            onClick={check}
+            className="toy-btn bg-emerald-400 text-white px-6 py-3 flex items-center gap-1"
+          >
+            <Star size={18} />
+            Check
+          </button>
+        </div>
+
+        <div className="mt-4">
+          <p className="text-center font-bold text-slate-600 mb-1 text-sm">
+            Phonics sound
+          </p>
+
+          <PhonicsBlocks
+            word={cur.word}
+            testId={`spell-phonics-${idx}`}
+          />
+        </div>
+      </div>
+    </Layout>
+  );
+}
