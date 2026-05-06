@@ -45,7 +45,7 @@ const [score, setScore] = useState(0);
   const guess = picked.map((p) => p.ch).join("");
 
   useEffect(() => {
-  const newPool = jumble(cur);
+  const newPool = shuffleLetters(cur);
 
   setPool(newPool);
   setPicked([]);
