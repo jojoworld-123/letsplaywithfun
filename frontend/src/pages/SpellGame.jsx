@@ -24,7 +24,7 @@ const shuffleLetters = (word) => {
     [arr[a], arr[b]] = [arr[b], arr[a]];
   }
 
-  import { useEffect, useMemo, useState } from "react";
+  
 import Layout from "../components/Layout";
 import TeacherMascot from "../components/TeacherMascot";
 import TTSButton from "../components/TTSButton";
