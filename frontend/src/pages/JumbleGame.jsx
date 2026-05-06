@@ -111,13 +111,23 @@ export default function JumbleGame() {
   }
 
   return (
-    <Layout title="Jumble Master 🔀" testId="jumble-game">
-      <TeacherMascot message={`Round ${idx + 1} of ${round.length} · ${ALL_JUMBLE_WORDS.length}+ words!`} />
-      <div className="toy-card p-5 anim-pop">
-        <div className="flex items-center justify-between gap-2">
-          <p className="font-bold text-slate-700">Make the word from the picture:</p>
-          <TTSButton text={`Make the word: ${cur.word}`} testId={`jumble-tts-${idx}`} size="sm" />
-        </div>
+  <Layout title="Jumble Master 🔀" testId="jumble-game">
+    <TeacherMascot
+      message={`Round ${idx + 1} of ${round.length} · ${ALL_JUMBLE_WORDS.length}+ words!`}
+    />
+
+    <div className="toy-card p-5 anim-pop">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-bold text-slate-700">
+          Make the word from the picture:
+        </p>
+
+        <TTSButton
+          text={`Make the word: ${cur.word}`}
+          testId={`jumble-tts-${idx}`}
+          size="sm"
+        />
+      </div>
 
         <div className="rounded-2xl overflow-hidden bg-slate-100 border-4 border-white shadow-inner mt-3">
           <img src={cur.img} alt={cur.word} className="w-full h-40 sm:h-52 object-cover" />
