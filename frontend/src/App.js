@@ -1,4 +1,5 @@
 import "./App.css";
+import Privacy from "./pages/Privacy";
 import About from "./pages/About";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -57,6 +58,7 @@ function App() {
             <Route path="/quiz" element={<ProtectedRoute><QuizGame /></ProtectedRoute>} />
             <Route path="/match" element={<ProtectedRoute><MatchGame /></ProtectedRoute>} />
             <Route path="/spell" element={<ProtectedRoute><SpellGame /></ProtectedRoute>} />
+<Route path="/privacy" element={<Privacy />} />
             <Route path="/multitask" element={<ProtectedRoute><MultitaskingGame /></ProtectedRoute>} />
             <Route path="/speed" element={<ProtectedRoute><SpeedGame /></ProtectedRoute>} />
             <Route path="/jumble" element={<ProtectedRoute><JumbleGame /></ProtectedRoute>} />
