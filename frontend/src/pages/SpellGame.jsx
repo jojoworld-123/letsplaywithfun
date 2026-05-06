@@ -52,14 +52,6 @@ const shuffleLetters = (word) => {
 
   return arr.map((ch, i) => ({ id: `${ch}-${i}`, ch }));
 };
-export default function SpellGame() {
-  const [round] = useState(() => pickRound());
-  const [idx, setIdx] = useState(0);
-  const [pool, setPool] = useState(() => shuffleLetters(round[0]));
-  const [slots, setSlots] = useState(() => Array(round[0].letters.length).fill(null));
-
-const [picked, setPicked] = useState([]); // ✅ ADD THIS
-
 const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
   const [hintShown, setHintShown] = useState(false);
