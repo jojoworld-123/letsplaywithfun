@@ -1,4 +1,5 @@
 import "./App.css";
+import About from "./pages/About";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { GameProvider, useGame } from "./store/gameStore";
