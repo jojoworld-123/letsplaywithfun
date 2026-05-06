@@ -52,6 +52,7 @@ const shuffleLetters = (word) => {
 
   return arr.map((ch, i) => ({ id: `${ch}-${i}`, ch }));
 };
+
 const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
   const [hintShown, setHintShown] = useState(false);
