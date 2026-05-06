@@ -16,13 +16,16 @@ const pickRound = () => {
 
 const shuffleLetters = (word) => {
   const arr = word.letters.slice();
+
   for (let i = 0; i < 50; i++) {
     const a = Math.floor(Math.random() * arr.length);
     const b = Math.floor(Math.random() * arr.length);
+
     [arr[a], arr[b]] = [arr[b], arr[a]];
   }
-  return arr.map((ch, i) => ({ id: `${ch}-${i}`, ch }));
 
+  return arr.map((ch, i) => ({ id: `${ch}-${i}`, ch }));
+};
 export default function SpellGame() {
   const [round] = useState(() => pickRound());
   const [idx, setIdx] = useState(0);
