@@ -61,8 +61,7 @@ function App() {
 <Route path="/contact" element={<Contact />} />
             <Route path="/spell" element={<ProtectedRoute><SpellGame /></ProtectedRoute>} />
 <Route path="/privacy" element={<Privacy />} />
-<Route path="/contact" element={<Contact />} />
-            <Route path="/multitask" element={<ProtectedRoute><MultitaskingGame /></ProtectedRoute>} />
+           <Route path="/multitask" element={<ProtectedRoute><MultitaskingGame /></ProtectedRoute>} />
             <Route path="/speed" element={<ProtectedRoute><SpeedGame /></ProtectedRoute>} />
             <Route path="/jumble" element={<ProtectedRoute><JumbleGame /></ProtectedRoute>} />
             <Route path="/qa" element={<ProtectedRoute><QAGame /></ProtectedRoute>} />
