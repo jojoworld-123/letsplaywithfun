@@ -52,6 +52,7 @@ function App() {
             <Route path="/" element={<WelcomeScreen />} />
             <Route path="/levels" element={<ProtectedRoute><LevelMap /></ProtectedRoute>} />
             <Route path="/learn" element={<ProtectedRoute><LearnMode /></ProtectedRoute>} />
+<Route path="/about" element={<About />} />
             <Route path="/picture" element={<ProtectedRoute><PictureGame /></ProtectedRoute>} />
             <Route path="/quiz" element={<ProtectedRoute><QuizGame /></ProtectedRoute>} />
             <Route path="/match" element={<ProtectedRoute><MatchGame /></ProtectedRoute>} />
