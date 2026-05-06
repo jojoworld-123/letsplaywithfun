@@ -43,11 +43,16 @@ const [score, setScore] = useState(0);
   const guess = picked.map((p) => p.ch).join("");
 
   useEffect(() => {
-    setPool(shuffleLetters(cur));
-    setPicked([]);
-    setHintShown(false);
+  setPool(shuffleLetters(cur));
+  setPicked([]);
+  setHintShown(false);
+
+  const t = setTimeout(() => {
     speak(`Spell the word: ${cur.word}.`);
-  }, [idx, cur, speak]);
+  }, 300);
+
+  return () => clearTimeout(t);
+}, [idx]);
 
   const tap = (l) => {
     setPicked((arr) => [...arr, l]);
