@@ -22,7 +22,6 @@ const shuffleLetters = (word) => {
     [arr[a], arr[b]] = [arr[b], arr[a]];
   }
   return arr.map((ch, i) => ({ id: `${ch}-${i}`, ch }));
-};
 
 export default function SpellGame() {
   const [round] = useState(() => pickRound());
@@ -52,8 +51,7 @@ const [score, setScore] = useState(0);
   }, 300);
 
   return () => clearTimeout(t);
-}, [idx]);
-
+}, [cur, speak]);
   const tap = (l) => {
     setPicked((arr) => [...arr, l]);
     setPool((arr) => arr.filter((x) => x.id !== l.id));
@@ -72,7 +70,7 @@ const [score, setScore] = useState(0);
 
   const check = () => {
     if (guess.toUpperCase() === target.toUpperCase()) {
-      speak(`Correct! ${cur.word}. Good job!`);
+     speak(`Correct! ${cur.word}. Good job!`);
       fireConfetti();
       setScore((s) => s + 1);
       setTimeout(() => {
