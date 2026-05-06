@@ -49,7 +49,7 @@ const [score, setScore] = useState(0);
 
   setPool(newPool);
   setPicked([]);
-  setHint(false);
+  setHintShown(false);
 
   const timer = setTimeout(() => {
     speak(`Make the word: ${cur.word}.`);
