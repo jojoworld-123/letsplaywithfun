@@ -3,7 +3,6 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import About from "./pages/About";
 import { useEffect } from "react";
-import Contact from "./pages/Contact";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { GameProvider, useGame } from "./store/gameStore";
 import WelcomeScreen from "./pages/WelcomeScreen";
