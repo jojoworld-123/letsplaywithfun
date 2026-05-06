@@ -205,16 +205,16 @@ export default function SpellGame() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2 mt-4 bg-amber-50 rounded-2xl p-3 border-2 border-amber-200">
-          {pool.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => tap(l)}
-              className="bg-white border-2 border-amber-200 rounded-xl w-12 h-14 flex items-center justify-center text-2xl font-extrabold text-amber-700"
-            >
-              {l.ch}
-            </button>
-))}
-        </div>
+  {pool.map((l) => (
+    <button
+      key={l.id}
+      onClick={() => tap(l)}
+      className="bg-white border-2 border-amber-200 rounded-xl w-12 h-14 flex items-center justify-center text-2xl font-extrabold text-amber-700"
+    >
+      {l.ch}
+    </button>
+  ))}
+</div>
 
         <div className="flex flex-wrap gap-3 mt-4 justify-center">
           <button
