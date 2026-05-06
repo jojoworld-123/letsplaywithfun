@@ -27,7 +27,10 @@ const jumble = (word) => {
     const b = Math.floor(Math.random() * arr.length);
     [arr[a], arr[b]] = [arr[b], arr[a]];
   }
-  return arr.map((ch, i) => ({ id: `${ch}-${i}-${Math.random()}`, ch }));
+ return arr.map((ch, i) => ({
+  id: `${ch}-${i}`,
+  ch,
+}));
 };
 
 export default function JumbleGame() {
